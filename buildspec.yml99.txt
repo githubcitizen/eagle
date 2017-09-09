@@ -1,0 +1,53 @@
+
+version: 0.2
+
+env:
+  variables:
+    key: "value"
+
+phases:
+  install:
+    commands: |
+      echo install phase...
+      sudo apt update
+      #- sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
+      wget https://nodejs.org/dist/v6.8.1/node-v6.8.1-linux-x64.tar.xz
+      tar xvf node-v6.8.1-linux-x64.tar.xz
+      export PATH="$PATH:~/node-v6.8.1-linux-x64/bin"
+      #echo "export PATH=$PATH:~/node-v6.8.1-linux-x64/bin" >> ~/.bashrc
+      #source ~/.bashrc
+  #pre_build:
+    #commands: |
+      #echo pre_build phase...
+      #- rm -rf worldview
+      #- git clone https://github.com/nasa-gibs/worldview.git
+      #- git clone https://github.com/githubcitizen/worldview.git
+      #- cd worldview/
+      #- git clone https://github.com/nasa-gibs/worldview-options-template.git options
+      git clone https://github.com/nasa-gibs/worldview-options-eosdis.git options
+      npm install --global grunt-cli
+      echo "y\n" | sudo apt install python-setuptools
+      sudo easy_install virtualenv==1.10.1
+      pwd
+      which node
+      which npm
+      which grunt
+      yyyyy
+      npm install
+  build:
+    commands: |
+      echo Build started on `date`
+      grunt
+      echo srcdir $CODEBUILD_SRC_DIR
+  post_build:
+    commands: |
+      echo Build completed on `date`
+      #npm start &
+artifacts:
+  files:
+    - './**/*'
+  discard-paths: no
+  base-directory: '.'
+  
+  
+  
