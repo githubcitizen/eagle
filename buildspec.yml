@@ -32,7 +32,6 @@ phases:
       which node
       which npm
       which grunt
-      yyyyy
       npm install
   build:
     commands: |
