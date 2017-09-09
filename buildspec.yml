@@ -16,8 +16,8 @@ phases:
       export PATH="$PATH:~/node-v6.8.1-linux-x64/bin"
       #echo "export PATH=$PATH:~/node-v6.8.1-linux-x64/bin" >> ~/.bashrc
       #source ~/.bashrc
-  #pre_build:
-    #commands: |
+      #pre_build:
+      #commands: |
       #echo pre_build phase...
       #- rm -rf worldview
       #- git clone https://github.com/nasa-gibs/worldview.git
