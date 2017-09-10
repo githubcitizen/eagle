@@ -28,7 +28,7 @@ phases:
       npm install --global grunt-cli
       echo "y\n" | sudo apt install python-setuptools
       sudo easy_install virtualenv==1.10.1
-      pwd
+      #pwd
       which node
       which npm
       which grunt
